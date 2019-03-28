@@ -1,0 +1,10 @@
+Package: BioTools
+Title: Tools for bio computing
+Version: 0.0.0.9000
+Authors@R: person("Rachel", "Silverstein", email = "arrow.silverstein@gmail.com", role = c("aut", "cre"))
+Description: Place to keep commonly used functions.
+Depends: R (>= 3.5.0)
+License: 
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1.9000
