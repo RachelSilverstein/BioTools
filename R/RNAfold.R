@@ -6,7 +6,7 @@
 #' Make sure to always keep the option --noPS. This funciton will also create dot.ps in the project directory (a dot plot). It will only create a single file if multiple inputs are supplied and continuously overwrite it. I don't want it to write this file but I can't seem to figure out how to turn it off, so the funcion jsut deletes this file before returning.
 #' Note, RNAfold must be saved in /usr/local/bin/.
 #'
-#' @param RNA Character vector of RNA sequences to be analyzed. A DNA sequence is also ok... T will be converted to U.
+#' @param RNAs Character vector of RNA sequences to be analyzed. A DNA sequence is also ok... T will be converted to U.
 #' @param options Additional parameters to pass to RNAfold. Default is "--noPS -p --jobs='0'". (Calculates partition function and MFE structure). Warning: always use --noPS!
 #'
 #' @return The output of RNAfold as a character string.
@@ -20,7 +20,7 @@
 #' RNAfold(c("AAAAUAUUUUUUUAUAUAUUUUUUUAAAAAAA", "CCCCCTTTTTCTATTTTAAAAAAAAUUUUUU"))
 #'
 #'
-RNAfold <- function(RNA, options = "--noPS -p --jobs='0'") {
+RNAfold <- function(RNAs, options = "--noPS -p --jobs='0'") {
   # Note that the file that is used for input for RNAfold must be in the
   # current working directory as RNAfold does not allow you to input an
   # entire file path, only a file name.
@@ -32,7 +32,7 @@ RNAfold <- function(RNA, options = "--noPS -p --jobs='0'") {
 
   # write the input for RNA fold to the temporary file
   # RNAfold takes a simple sequence file where each sequence is on a new line
-  writeLines(RNA, con = tf)
+  writeLines(RNAs, con = tf)
 
   # send command to RNA fold
   command <- paste(c("RNAfold ", options, " --infile='", tf_name, "'"), sep="", collapse = "")
