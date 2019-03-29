@@ -2,5 +2,5 @@
 
 export(RNAfold)
 export(example_function)
-export(mutateSeq)
+export(mutSeqs)
 export(varFold)
