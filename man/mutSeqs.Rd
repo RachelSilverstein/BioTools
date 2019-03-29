@@ -30,12 +30,8 @@ Error if the mutant sequences provided does not match the length of the start an
 }
 \examples{
 
-
 mutSeqs(sequences = c('AAC', "GCC"), start = c(1,2), stop = c(2, 3), wt = c("AA", "CC"), mut = c('GG', 'AA'))
 
-}
-\seealso{
-\code{\link{another_function}} Info
 }
 \author{
 \href{https://orcid.org/0000-0001-5724-2252}{Rachel Silverstein} (aut)
