@@ -1,6 +1,6 @@
 #' Invoke RNAfold
 #'
-#' Input RNA sequences to be analyzed by RNAfold.
+#' Input RNA sequences to be analyzed by \href{https://www.tbi.univie.ac.at/RNA/}{RNAfold}.
 #'
 #' Pass a character vector of RNA sequences to be analyzed (and optional additional parameters for RNA fold). Returns the output of RNA fold in string format.
 #' Make sure to always keep the option --noPS. This funciton will also create dot.ps in the project directory (a dot plot). It will only create a single file if multiple inputs are supplied and continuously overwrite it. I don't want it to write this file but I can't seem to figure out how to turn it off, so the funcion jsut deletes this file before returning.

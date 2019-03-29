@@ -15,7 +15,7 @@ RNAfold(RNAs, options = "--noPS -p --jobs='0'")
 The output of RNAfold as a character string.
 }
 \description{
-Input RNA sequences to be analyzed by RNAfold.
+Input RNA sequences to be analyzed by \href{https://www.tbi.univie.ac.at/RNA/}{RNAfold}.
 }
 \details{
 Pass a character vector of RNA sequences to be analyzed (and optional additional parameters for RNA fold). Returns the output of RNA fold in string format.

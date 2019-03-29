@@ -2,36 +2,63 @@
 % Please edit documentation in R/varFold.R
 \name{varFold}
 \alias{varFold}
-\title{Function Template}
+\title{Variant RNAfold}
 \usage{
-varFold(wt_sequence, variant = FALSE, start = NULL, stop = NULL,
-  wt = NULL, mut = NULL)
+varFold(wt_sequences, variants = FALSE, start = NULL, stop = NULL,
+  wt = NULL, mut = NULL, MFEwt = NULL, ensFEwt = NULL)
 }
 \arguments{
-\item{variant}{The variant}
+\item{wt_sequences}{Character vector representing the wild type RNA sequences to (DNA also ok... will substitute U for T)}
 
-\item{wt_sequnece}{Character string representing the RNA sequence to calculate RNA structure for (DNA also ok... will substitute U for T)}
+\item{variants}{Optional logical. Indicates whether variants are provided that should be analyzed (TRUE) or whether the wild type sequence should be analyzed (FALSE). Default is FALSE.}
+
+\item{start}{Optional integer vector same length as wt_sequences. Specifies the starting nucleotide positions of the variants. Must be provided if variants is TRUE.}
+
+\item{stop}{Optional integer vector same length as wt_sequences. Specifies the ending nucleotide positions of the variants. Must be provided if variants is TRUE.}
+
+\item{wt}{Optional character vector same length as wt_sequences. Not necessary to provide even if variant = TRUE. For error-checking purposes only.}
+
+\item{mut}{Optional character vector same length as wt_sequences. Specifies what the sequence between start and stop nucleotides should be changed to. Must be provided if variants is TRUE.}
+
+\item{MFEwt}{Optional numeric vector, the minimum free energies of the wild type sequences. This parameter is provided rather than calculated to avoid repetitive MFE calculations for vectors where all of the wild type sequences are identical.}
+
+\item{ensFEwt}{Optional numeric vector, the ensemble free energies of the wild type sequences. This parameter is provided rather than calculated to avoid repetitive MFE calculations for vectors where all of the wild type sequences are identical.}
 }
 \value{
-The sum of x and y
+Data frame with 4 columns, MFE (minimum free energy), MFE_diff (minimum free energy difference, mutant minus wild type), ensFE (ensemble free energy), ensFE_diff (ensemble free energy difference, mutant minus wild type)
 }
 \description{
-Description of the function
+Get minimum free energy and ensemble free energy for specified variants of RNA sequences and their differences from wild type (calculated by \href{https://www.tbi.univie.ac.at/RNA/}{RNAfold}); vectorized.
 }
 \details{
 A more detailed description of what the function does.
 }
 \examples{
 
-example_function(2,3)
-# [1] 5
+# first get the wild type free energes using varfold without a variant
+seq1 <- "AAAAAAGUUUGGGGGGCCCCCCTTTTTT"
+seq2 <- "UUUUUUUUAAAAAAAUUUUUUUUAAAAAAAAUUUUUUUUAAAAAAAA"
+wt_data <- varFold(wt_sequences = c(seq1, seq2), variants = FALSE)
+MFEwt <- wt_data$MFE
+ensFEwt <- wt_data$ensFE
+# > wt_data
+#     MFE                 MFE_diff  ensFE                 ensFE_diff
+# 1  -7.4 No WT MFE data provided.  -8.35 No WT ensFE data provided.
+# 2 -10.0 No WT MFE data provided. -11.54 No WT ensFE data provided.
 
-
-
+# now get the variant information with differences using the wild info just calculated
+var_data <- varFold(wt_sequences = c(seq1, seq2), variants = TRUE, start = c(1, 2), stop = c(2, 3), wt = c("AA", "UU"), mut = c("GG", "CC"), MFEwt = MFEwt, ensFEwt = ensFEwt)
+# > var_data
+# MFE MFE_diff ensFE ensFE_diff
+# MFE MFE_diff ensFE ensFE_diff
+# 1 -7.6     -0.2 -8.49      -0.14
+# 2 -8.2      1.8 -9.42       2.12
 
 }
 \seealso{
-\code{\link{another_function}} Info
+\code{\link{RNAfold}} Called by this function
+
+\code{\link{mutSeqs}} Called by this function
 }
 \author{
 \href{https://orcid.org/0000-0001-5724-2252}{Rachel Silverstein} (aut)
