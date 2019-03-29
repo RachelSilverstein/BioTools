@@ -1,4 +1,4 @@
-#' MutSeqs
+#' Mutate Sequences
 #'
 #' Mutate a vector of DNA or RNA sequences; vectorized.
 #'
