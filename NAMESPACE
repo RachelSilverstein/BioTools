@@ -3,4 +3,5 @@
 export(RNAfold)
 export(example_function)
 export(mutSeqs)
+export(readDMS)
 export(varFold)
