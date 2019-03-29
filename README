@@ -1,0 +1,8 @@
+Install package using:
+
+if (!require(devtools)) {
+    install.packages("devtools")
+  }
+library(devtools)
+
+install_github("RachelSilverstein/BioTools")
