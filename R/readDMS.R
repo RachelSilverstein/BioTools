@@ -14,7 +14,7 @@
 #' @author \href{https://orcid.org/0000-0001-5724-2252}{Rachel Silverstein} (aut)
 #'
 #' @examples
-#' # this example only works on my conputer
+#' # this example only works on my computer
 #' setwd("/Users/Rachel/desktop/Roth Lab/R_DMS")
 #' path <- './data/rawData_UBE2I_solid.txt'
 #' gene_name <- 'UBE2I'

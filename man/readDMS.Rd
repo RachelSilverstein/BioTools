@@ -21,7 +21,7 @@ Read raw data from DMS experiment from a tsv file and format into a data frame.
 A more detailed description of what the function does.
 }
 \examples{
-# this example only works on my conputer
+# this example only works on my computer
 setwd("/Users/Rachel/desktop/Roth Lab/R_DMS")
 path <- './data/rawData_UBE2I_solid.txt'
 gene_name <- 'UBE2I'
