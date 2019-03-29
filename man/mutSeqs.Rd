@@ -2,7 +2,7 @@
 % Please edit documentation in R/mutSeqs.R
 \name{mutSeqs}
 \alias{mutSeqs}
-\title{MutSeqs}
+\title{Mutate Sequences}
 \usage{
 mutSeqs(sequences, start, stop, mut, wt = NULL)
 }
