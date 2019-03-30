@@ -37,6 +37,8 @@ mutSeqs <- function(sequences, start, stop, mut, wt = NULL) {
     stopifnot(length(wt) == l)
     wt <- strsplit(wt, split = "")
     for (i in seq_along(sequences)) {
+      print(wt)
+      print(sequences[[i]][start[i]:stop[i]])
       stopifnot(sequences[[i]][start[i]:stop[i]] == wt[[i]])
     }
   }
