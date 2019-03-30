@@ -35,6 +35,8 @@ RNAfold <- function(RNAs, options = "--noPS -p --jobs='0'") {
   writeLines(RNAs, con = tf)
 
   # send command to RNA fold
+  n <- length(RNAs)
+  cat("Sending ", n, " jobs to RNAfold. \n")
   command <- paste(c("RNAfold ", options, " --infile='", tf_name, "'"), sep="", collapse = "")
   output <- system(command, intern = TRUE)
 
