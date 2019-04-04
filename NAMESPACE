@@ -3,6 +3,7 @@
 export(RNAfold)
 export(calculateFitnessScores)
 export(example_function)
+export(getSNPs)
 export(mutSeqs)
 export(readDMS)
 export(varFold)

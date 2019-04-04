@@ -1,11 +1,20 @@
+
+#' Get SNPs
+#'
+#' @param data  data frame of mutations with a mut_codon and wt_codon colums
+#' @raturn data frame plus 3 new columns, snp_pos, snp_from, snp_to
+#'
+#' @export
+
 getSNPs <- function(data) {
+
   # take in a data frame of mutations with a mut_codon and wt_codon colums
   # return only rows that are SNPs and add 3 columns:
   # snp_pos
   # snp_from
   # snp_to
   SNPs <- data.frame()
-  
+
   for (i in seq_along(data$fitness_score)) {
     row <- data[i, ]
     wt_codon <- unlist(strsplit(row$wt_codon, split = ""))
